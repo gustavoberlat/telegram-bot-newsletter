@@ -35,7 +35,7 @@ async function chatGPTRequest() {
 
 
 app.post('/try',(req, res) => {
-	const update = req.body; // Recebe a atualização do webhook
+	const update = req; // Recebe a atualização do webhook
   	if (update.message) {
     const mensagem = update.message.text; // Acessa o conteúdo da mensagem
     
