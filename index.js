@@ -2,8 +2,6 @@ const express = require('express')
 const app = express()
 const axios = require("axios");
 
-app.use(express.json());
-
 require('dotenv').config();
 
 
@@ -34,6 +32,7 @@ async function chatGPTRequest() {
 }
 
 
+app.use(express.json());
 
 app.post('/try',(req, res) => {
     console.log(req);
