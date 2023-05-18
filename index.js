@@ -39,8 +39,7 @@ app.get('/try',(req) => {
 })
 
 
-
-return {"fail": false}
+app.listen(3987)
 
 
 
