@@ -35,7 +35,7 @@ async function chatGPTRequest() {
 
 
 app.get('/try',(req) => {
-	console.log(req)
+	console.log("teste")
 })
 
 
