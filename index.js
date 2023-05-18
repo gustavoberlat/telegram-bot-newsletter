@@ -35,7 +35,8 @@ async function chatGPTRequest() {
 
 
 app.post('/try',(req, res) => {
-	return res.status(200)
+	console.log('test')
+	return {"fail": false}
 })
 
 
