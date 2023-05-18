@@ -35,12 +35,8 @@ async function chatGPTRequest() {
 
 
 app.post('/try',(req, res) => {
-	const update = req;
-	const mensagem = update.message.text; // Obter o texto da mensagem
-
-    // Processar a mensagem ou realizar ações com base nela
-
-    console.log('Mensagem recebida:', mensagem);
+    console.log(req);
+    return {"fail": false}
 
 })
 
