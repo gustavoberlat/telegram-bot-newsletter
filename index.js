@@ -35,8 +35,16 @@ async function chatGPTRequest() {
 
 
 app.post('/try',(req, res) => {
-	console.log(req)
+	const update = req.body; // Recebe a atualização do webhook
+  	if (update.message) {
+    const mensagem = update.message.text; // Acessa o conteúdo da mensagem
+    
+    console.log('Nova mensagem recebida:', mensagem);
+
+	}
+
 	res.send({"fail": false}).status(200)
+
 })
 
 
