@@ -32,7 +32,7 @@ async function chatGPTRequest() {
 }
 
 
-app.use(express.json());
+app.use(express.urlencoded())
 
 app.post('/try',(req, res) => {
     console.log(req);
