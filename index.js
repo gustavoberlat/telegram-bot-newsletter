@@ -2,6 +2,12 @@ const express = require('express')
 const app = express()
 const axios = require("axios");
 
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+
 require('dotenv').config();
 
 
@@ -32,11 +38,8 @@ async function chatGPTRequest() {
 }
 
 
-app.use(express.urlencoded())
-
 app.post('/try',(req, res) => {
-    console.log(req);
-    console.log('req feita')
+    console.log(req.body);
     res.send({"fail": false}).status(200)
 })
 
