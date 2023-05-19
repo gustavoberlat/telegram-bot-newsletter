@@ -22,10 +22,10 @@ async function sendTelegramMessage(message){
 }
 
 
-async function chatGPTRequest() {
+async function chatGPTRequest(message) {
 	await axios.post('https://free.churchless.tech/v1/chat/completions', {
   model: 'gpt-3.5-turbo',
-  messages: [{ role: 'user', content: 'Me fale uma curiosidade legal sobre a inglaterra.' }]
+  messages: [{ role: 'user', content: message }]
 }, {
   headers: {
     'Content-Type': 'application/json'
@@ -39,7 +39,9 @@ async function chatGPTRequest() {
 
 
 app.post('/try',(req, res) => {
-    console.log(req.body);
+    const message = req.body.message.text;
+    chatGPTRequest(message)
+
     res.send({"fail": false}).status(200)
 })
 
