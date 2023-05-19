@@ -40,9 +40,8 @@ async function chatGPTRequest(message) {
 
 app.post('/try',(req, res) => {
     const message = req.body.message.text;
-    chatGPTRequest(message)
-
     res.send({"fail": false}).status(200)
+    chatGPTRequest(message)
 })
 
 
