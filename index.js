@@ -23,9 +23,13 @@ async function sendTelegramMessage(message){
 
 
 async function chatGPTRequest(theme) {
-	message = `Crie um texto em modelo de newsletter sobre o tema ${theme} com:  -3 paragrafos -comprimente o leitor -coloque a data -fale em uma linguagem mediana, não muito formal nem muito informal -adicione %0A no texto sempre que for pular uma linha, isso é importante para meu script`
-
-
+	message = `Crie um texto em modelo de newsletter sobre o tema ${theme} com:  
+	-3 paragrafos 
+	-comprimente o leitor 
+	-coloque a data 
+	-fale em uma linguagem mediana, não muito formal nem muito informal
+	-eu preciso que você adicione o %0A todas  as vezes que voce for pular uma linha no texto. Como se fosse um \n. por favor.`
+	
 	await axios.post('https://free.churchless.tech/v1/chat/completions', {
   model: 'gpt-3.5-turbo',
   messages: [{ role: 'user', content: message }]
