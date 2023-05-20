@@ -22,7 +22,10 @@ async function sendTelegramMessage(message){
 }
 
 
-async function chatGPTRequest(message) {
+async function chatGPTRequest(theme) {
+	message = `Crie um texto em modelo de newsletter sobre o tema ${theme} com:  -3 paragrafos -comprimente o leitor -coloque a data -fale em uma linguagem mediana, não muito formal nem muito informal -adicione %0A no texto sempre que for pular uma linha, isso é importante para meu script`
+
+
 	await axios.post('https://free.churchless.tech/v1/chat/completions', {
   model: 'gpt-3.5-turbo',
   messages: [{ role: 'user', content: message }]
@@ -39,9 +42,9 @@ async function chatGPTRequest(message) {
 
 
 app.post('/try',(req, res) => {
-    const message = req.body.message.text;
+    const theme = req.body.message.text;
     res.send({"fail": false}).status(200)
-    chatGPTRequest(message)
+    chatGPTRequest(theme)
 })
 
 
